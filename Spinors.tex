@@ -1,0 +1,173 @@
+\section{Spinors}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Spin Groups}
+
+\begin{frame}{From now on} % % % % % % % % % % % % % % % % % % %
+
+    Let $n = dim_\RR V$, and $m = \lfloor \frac{n}{2} \rceil$.
+
+    From now on we assume that \emph{$g$ is positive definite}, so that $V \cong \RR^n$ as inner-product vector spaces, and so we may write $v_1 \cdot v_2 := g(v_1, v_2)$ for $v_i \in V$. %(even in the big book Elements of Noncommutative Geometry this is assumed). 
+    
+    Let $\set{e_1, \dots, e_n}$ be an \emph{oriented} orthonormal basis.
+    
+    $\gamma = (-1)^m e_1 \cdots e_n$, but it is independent of the chosen oriented orthonormal basis. % In \RR^n: that the determinant of the matrix of columns is 1, not -1.
+
+    We will concentrate on the \textbf{complex} Clifford algebra $\CC l(V)$, with hermitian inner product $\bra \cdot , \cdot \ket$, so we will simply call it simply \emph{the Clifford algebra}.% Even if g is not positive definite, it is ISOMORPHIC, but not equal to the positive-definite case.
+    
+\end{frame}
+
+\begin{frame}{Unit Vectors as Perpendicular Reflections} % % % % % % % % % % % % % % % % % % %
+    Let \defn{$\cclv^\times$} be the group of invertible elements.
+        \begin{itemize}
+            
+        \item Notice that, if $v \in V$, by the defining property of the Clifford algebra, $v^2 = ||v||^2$, we have that $v^\inv = \frac{v}{||v||^2}$.
+            
+        \end{itemize}
+    
+    Call an element $u \in \cclv$ \defn{unitary} if $u^* u = 1$. They are such that $\bra a, b \ket = \tau(a^* b) = \tau(a^*(u^* u) b)  = \bra ua, ub \ket$.
+        \begin{itemize}
+            
+        \item If $x \in V$ is of unit length,  $x^* = \conj{(x^t)} = x = x^
+        \inv$.
+        
+        \item Unitary vectors $w$ in $V^\CC$ \Iff $w = \lambda x$, where $\lambda \in U(1) =: \defn{\TT}$, $x$ is a unit vector in $V$.
+        
+        \item If $u$ is unitary \then $u \in \cclv^\times$.
+            
+        \end{itemize}
+    
+    For $a \in \cclv^\times$, let \defn{$Ad_a$} be the map $b \mapsto a b a^\inv$ for $b \in \cclv$.
+    
+
+\end{frame}
+
+\begin{frame} % % % % % % % % % % % % % % % % % % %
+    \begin{proposition}
+    For $x, y \in V$ of unit length, $Ad_x(y) = y - 2 (x \cdot y) = $ ``Reflection of $y$ with respect to to the plane orthogonal to $x$''. So, $Ad_x \in O(V, g)$.
+    \end{proposition}
+    
+    Furthermore, for any unitary vector $u = \lambda x \in $
+    
+    
+    
+    
+    A unit vector of $V^\CC$ is the same reflection as all of it times $\bb T$.
+\end{frame}
+
+\begin{frame}{$Spin(V)$} % % % % % % % % % % % % % % % % % % %
+
+    Definition. Inside $Cl(V)$
+    
+    Double Covering
+    
+    Examples:
+        \begin{itemize}
+            
+        \item Sanchez, explicit
+        
+        \item $Spin(3) \cong SU(2)$ = {unit quaternions}
+        
+        \item $Spin(4) \cong SU(2) \times SU(2)$
+            
+        \end{itemize}
+\end{frame}
+
+\begin{frame}{$Spin^c(V)$} % % % % % % % % % % % % % % % % % % %
+
+    Definition. Inside $Cl(V^\CC)$
+    
+    Exact sequence
+    
+    $Spin(V)$ is subgroup
+    
+    Examples:
+        \begin{itemize}
+            
+        \item No se
+            
+        \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Spinor Space / Fermionic Fock Space}
+
+\begin{frame}{Complex Structure $J$ and $V$ as a complex vector space} % % % % % % % % % % % % % % % % % % %
+
+    Inner product.
+    
+    Example: $R^{2n}$
+    
+    (Do not talk about $W_J$ here, but in the section of Polarized Fock Space. Con: can't talk of the action of $w \in W_J$, which is used to proof that the action is self adjoint; can't proof important things)... Creo que mejor si, para poder probar al menos que la rep. en el caso par es irrep, y autoadjunta: $W_J$, $P_J$ 
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Representation of $\CC l(V)$: $V$ even-dimensional}
+
+\begin{frame}{Fock and Polarized Fock Space: even dimension} % % % % % % % % % % % % % % % % % % %
+
+    Definitions
+    
+    Inner product
+
+\end{frame}
+
+\begin{frame}{Theorems about Fock Space: even dimension} % % % % % % % % % % % % % % % % % % %
+
+    Theorem: $c_J$ is a selfadjoint representation of the *-algebra $\CC l(V)$: comes ``easily'' from knowing what the actio of $w \in W_J$ is.
+    
+    Theorem (Varilly chiquito): It is the \textbf{unique} \emph{irreducible} algebra representation of $\CC l(V)$: irrep comes immediately from Schur's lemma
+    
+    Lemma: $\gamma$ acts as the grading operator on the Fock space, which is the exterior algebra grading. ... useful, perhaps, because of teoremita de orden normal? -> \textbf{2 types of spinors} (which act differently by Spin, so act differently by SL( . , C)?)
+
+\end{frame}
+
+\begin{frame}{Example of Fock Space} % % % % % % % % % % % % % % % % % % %
+
+    Example: Sanchez. Chirality is what we expect.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Representation of $\CC l(V)$: $V$ odd-dimensional}
+
+\begin{frame}{Fock Space: odd dimension} % % % % % % % % % % % % % % % % % % %
+
+    Paragraph of Varilly grande.
+    
+    Many possibilities for the FOck space, as there are many ``orthonormal hyperplanes''
+    
+    In general: $dim_\CC (\mathcal F(V)) = 2^{\lfloor\frac{dim_\RR V}{2} \rfloor}$
+    
+    Theorem: 
+        \begin{itemize}
+        
+        \item There are exactly 2 unitarily inequivalent irreps, both can be seen on Fock space. (Varilly chiquito)
+        
+        \item The 2 irreps agree in the even part of the algebra.
+        
+        \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Spin Groups Representations}
+
+\begin{frame}{Results} % % % % % % % % % % % % % % % % % % %
+
+    Even:
+        \begin{itemize}
+            
+        \item $Spin^C$ and $Spin$ act irreducibly and inequivalently on the positive (chirality) and negative (chirality) of Fock space. \textbf{i.e. there are 2 types of spinors, each of which acts differently under Spin, so under Lorentz $\subset SL(, \CC)$}!!
+            
+        \end{itemize}
+    
+    Odd:
+        \begin{itemize}
+        
+        \item Although there are $2$ inequivalent irreps of the algebra $\CC l(V)$ which can both be seen in the same Fock space, $Spin^\CC$ and $Spin$ act equivalently and irreducibly in this Fock space. TODO: que significa?
+        
+        \end{itemize}
+
+\end{frame}
