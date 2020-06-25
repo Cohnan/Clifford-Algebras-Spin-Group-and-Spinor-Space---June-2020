@@ -50,7 +50,7 @@
         \end{itemize}
 
     \begin{lemma}
-    For $x \in $ of unit length and $v \in V$, $Ad_x(v) = v - 2 (x \cdot v) = $ ``\textbf{Reflection} of $v$ with respect to to the plane orthogonal to $x$''. So, $Ad_x \in O(V, g)$ when applied to $V\subset \cclv$.
+    For $x \in $ of unit length and $v \in V$, $-Ad_x(v) = v - 2 (x \cdot v) = $ ``\textbf{Reflection} of $v$ with respect to to the plane orthogonal to $x$''. So, $Ad_x \in O(V, g)$ when applied to $V\subset \cclv$.
     \end{lemma}
     \begin{proof} Hola
     \end{proof}
@@ -159,7 +159,7 @@
     
     This allows to think of $V$ as an $m$ dimensional complex vector space where $i \cdot v := Jv \in V$.
     
-    \emph{Remark}: This multiplication of $v$ by $i$ is different to the multiplication by $i$ in $V^\CC = V \oplus iV$, because the latter takes us outside $V$ into $iV$.
+    \emph{Remark}: This multiplication of $v$ by $i$ is different to the multiplication by $i$ in $V^\CC = V \oplus iV$, because the latter takes us outside $V$ into $iV$: \textbf{$V$ is NOT a complex v. subspace of $V^\CC$}.
 
 \end{frame}
 
@@ -209,10 +209,14 @@
 
 \begin{frame}{Example: $\RR^4$} % % % % % % % % % % % % % % % % % % %
 
-In $\RR^4$, recall that, e.g. $J(e_1) = e_3$ and $J(e_3) = -e_1$.
-\[
-    W_J = span_\CC\set{e_1 -i e_3, e_2 - ie_4} \subset{\RR^4 \otimes \CC}
-\]
+    In $\RR^4$, recall that, e.g. $J(e_1) = e_3$ and $J(e_3) = -e_1$.
+    \begin{align*}
+        W_J &= span_\CC\set{e_1 -i e_3, e_2 - ie_4} \subset{\RR^4 \otimes \CC} \\
+        P_J(e_3) &= ie_1 + 1e_3 \in W_J \\
+        P_J(x e_1 + y e_2 + z e_3) &= (x + iz)e_1 + (y)e_2 + (z - ix)e_3 + (-iy)e_4\in W_J
+    \end{align*}
+    
+
 
 Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so $W_J$ is indeed a complex vector subspace unlike $V$.
 
@@ -221,28 +225,84 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Representation of $\CC l(V)$: $V$ even-dimensional}
 
-\begin{frame}{Fock and Polarized Fock Space: even dimension} % % % % % % % % % % % % % % % % % % %
+\begin{frame}{Fock Space} % % % % % % % % % % % % % % % % % % %
 
+    Let $V$ be an even dimensional real vector spaces of dimension $n = 2m$, and fix an orthogonal complex structure $J$ with respect to its positive-definite inner product $g$.
+    
+    Let $\extv_J$ be the (complex) exterior algebra over the (complex) vector space $V_J$.
+    
+    On $\extv_J$, induce the complex inner product $\defn{\bra} u_1 \wedge \cdots \wedge u_k, v_1 \wedge \cdots \wedge v_l \defn{\ket}_J := \delta_{kl} det[\bra u_i, v_j \ket_J]$.
+    
     \begin{definition}
+    \defn{The Fock Space} $\defn{\mathcal F_J(V)} := \extv_J$. It is a (complex) Hilbert space for the inner product $\bra \cdot, \cdot \ket_J$. Its elements are called \defn{spinors}. Choose a unit vector $\defn{\Omega} \in \CC \subset \fjv$ and call it \defn{the vacuum vector of \fjv}.
+    \end{definition}
+
+\end{frame}
+
+\begin{frame}{Polarized Fock Space} % % % % % % % % % % % % % % % % % % %
+
+    On $\extwj$, induce the complex inner product $\defn{\bbra} z_1 \wedge \cdots \wedge z_k, w_1 \wedge \cdots \wedge w_l \defn{\kket} := \delta_{kl} det[\bbra z_i, w_j \kket]$.
+    
+    \begin{definition}
+    Let $\extvj$ be \defn{the Polarized Fock Space asociated to J}. It is a (complex) Hilbert space for the inner product $\bbra \cdot, \cdot \kket$. Its elements are also called \defn{spinors}. $\defn{\Omega} \in \CC \subset \fjv$ is called a \defn{the vacuum vector of \fjv}.
     \end{definition}
     
-    Inner product
+    \textbf{The Fock space and the polarized Fock space are unitarily isomorphic} via the transformation $P_J : \extvj \to \extwj$ induced by $P_J:V_J \to W_J$, given by $P_J(v_1 \wedge \cdots \wedge v_k) = P_Jv_1 \wedge \cdots \wedge P_Jv_k$.
+    
+\end{frame}
 
+\begin{frame}{Example: $\mathcal F_J(\RR^2)$} % % % % % % % % % % % % % % % % % % %
+    TODO. Chirality is what we expect in simple spinors.
+    
+\end{frame}
+
+\begin{frame}{Why Do we want Representations of $\cclv$?}
+    $\cclv$, and in particular the spin groups $\spinv$ and $\spinc$ groups will be ``multiplied'' with spinors to obtain new spinors. 
+    
+    This multiplication is essential to define what a spinor field and a Dirac operator over the manifold are.
+    
+    TODO
+\end{frame}
+
+\begin{frame}{Representation of $\cclv$ in \fjv} % % % % % % % % % % % % % % % % % % %
+    
+    For $v \in V$, let \defn{the creation operator $a^\dagger_J($}v\defn{$)$} be:
+    \[ a^\dagger(v) (u_1 \wedge \cdots \wedge u_k) := v \wedge u_1 \wedge \cdots \wedge u_k \]
+    
+    And \defn{the annihilation operator $a_J($}v\defn{$)$} by:
+    
+    \[ a_J(v) (u_1 \wedge \cdots \wedge u_k) := \sum_{j = 1}^k \bra v, u_j \ket_J \wedge u_1 \wedge \cdots \wedge \hat u_j \wedge \cdots  \wedge u_k \]
+    
+    \defn{The Clifford action} of $\cclv$ on the Fock space is induced by the action of $v \in V$, which is defined by:
+    
+    \[ \defn{\pi_J(}v\defn{)} := a_J(v) + a_J^\dagger(v) \]
+
+\end{frame}
+
+\begin{frame}{Representation of $\cclv$ in polarized \fjv} % % % % % % % % % % % % % % % % % % %
+    
+    For $v \in V$, let \defn{the creation operator $a^\dagger_J($}v\defn{$)$} be:
+    \[ a^\dagger(v) (u_1 \wedge \cdots \wedge u_k) := v \wedge u_1 \wedge \cdots \wedge u_k \]
+    
+    And \defn{the annihilation operator $a_J($}v\defn{$)$} by:
+    
+    \[ a_J(v) (u_1 \wedge \cdots \wedge u_k) := \sum_{j = 1}^k \bra v, u_j \ket_J\, u_1 \wedge \cdots \wedge \hat u_j \wedge \cdots  \wedge u_k \]
+    
+    \defn{The Clifford action} of $\cclv$ on the Fock space is induced by the action of $v \in V$, which is defined by:
+    
+    \[ \defn{\pi_J(}v\defn{)} := a_J(v) + a_J^\dagger(v) \]
+    
+    We will see that this is the unique irreducible representation of $\cclv$.
+    
 \end{frame}
 
 \begin{frame}{Theorems about Fock Space: even dimension} % % % % % % % % % % % % % % % % % % %
 
-    Theorem: $c_J$ is a selfadjoint representation of the *-algebra $\CC l(V)$: comes ``easily'' from knowing what the actio of $w \in W_J$ is.
+    \begin{theorem}$\pi_J$ is a selfadjoint representation of the *-algebra $\CC l(V)$\end{theorem}%: comes ``easily'' from knowing what the actio of $w \in W_J$ is. WE MIGHT AS WELL SAY SPINORS ARE THOSE THINGS THAT ARE ACTED ON BY SPIN/CLIFFORD.
     
-    Theorem (Varilly chiquito): It is the \textbf{unique} \emph{irreducible} algebra representation of $\CC l(V)$: irrep comes immediately from Schur's lemma
+    \begin{theorem}(Varilly chiquito): It is the \textbf{unique} \emph{irreducible} algebra representation of $\CC l(V)$\end{theorem}% irrep part comes immediately from Schur's lemma
     
-    Lemma: $\gamma$ acts as the grading operator on the Fock space, which is the exterior algebra grading. ... useful, perhaps, because of teoremita de orden normal? -> \textbf{2 types of spinors} (which act differently by Spin, so act differently by SL( . , C)?)
-
-\end{frame}
-
-\begin{frame}{Example of Fock Space} % % % % % % % % % % % % % % % % % % %
-
-    Example: Sanchez. Chirality is what we expect.
+    \begin{proposition} $\gamma$ acts as the grading operator on the Fock space\end{proposition}%, which is the exterior algebra grading. ... useful, perhaps, because of teoremita de orden normal? -> \textbf{2 types of spinors} (which act differently by Spin, so act differently by SL( . , C)?)
 
 \end{frame}
 
@@ -251,21 +311,28 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
 
 \begin{frame}{Fock Space: odd dimension} % % % % % % % % % % % % % % % % % % %
 
-    Paragraph of Varilly grande.
+    Let $U = span_\RR\set{e_1, e_{2m}}$. The Fock space will be a fock space of $\mathcal F_J(U)$.
     
-    Many possibilities for the FOck space, as there are many ``orthonormal hyperplanes''
+    $\CC l(U) \cong \cclv^+$ via the algebra isomorphism extended from $u \in U \mapsto iue_{2m+1}$, so that $\mathcal F_J(U)$ is an irreducible rep. of $\cclv^+$.
     
+    ``The algebra $\cclv$'' is \dbtext{generated} by $\cclv^+$ together with the central element $\gamma$ TODO.
+    
+    So, the action of all of $\cclv$ can be extended in exactly $2$ ways: by letting $\gamma$ act as either $+1$ or $-1$ \textbf{both of which are \dbtext{irreducible}, and \dbtext{inequivalent}}.
+    
+
+\end{frame}
+
+\begin{frame}{Summary of Representations of $\cclv$}
     In general: $dim_\CC (\mathcal F(V)) = 2^{\lfloor\frac{dim_\RR V}{2} \rfloor}$
     
     Theorem: 
         \begin{itemize}
         
-        \item There are exactly 2 unitarily inequivalent irreps, both can be seen on Fock space. (Varilly chiquito)
+        \item There are exactly 2 unitarily inequivalent irreps, both can be seen on the Fock space of some $U$. (Varilly chiquito)
         
         \item The 2 irreps agree in the even part of the algebra.
         
         \end{itemize}
-
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
