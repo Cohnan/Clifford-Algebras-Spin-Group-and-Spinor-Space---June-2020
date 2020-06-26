@@ -1,7 +1,7 @@
-\section{Spinors}
+%\section{Spinors}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Spin Groups}
+\section{Spin Groups}
 
 \begin{frame}{From now on\dots} % % % % % % % % % % % % % % % % % % %
 
@@ -13,7 +13,7 @@
     
     $\gamma = (-1)^m e_1 \cdots e_n$, but it is independent of the chosen oriented orthonormal basis. % In \RR^n: that the determinant of the matrix of columns is 1, not -1.
 
-    We will concentrate on the \textbf{complex} Clifford algebra $\CC l(V)$, with hermitian inner product $\bra \cdot , \cdot \ket$.% Even if g is not positive definite, it is ISOMORPHIC, but not equal to the positive-definite case.
+    We will concentrate on the \textbf{complex} Clifford algebra $\CC l(V)$, with hermitian inner product $\bra \cdot , \cdot \ket$ induced by the trace.% Even if g is not positive definite, it is ISOMORPHIC, but not equal to the positive-definite case.
     
 \end{frame}
 
@@ -58,6 +58,9 @@
     Finally, it is not hard to see that \textbf{applying $2$ / an even amount of reflections is a rotation: $Ad_{x_1 x_2}\in SO(V, g)$}; \\the converse is also true: every rotation of $V$ may be written as an even product of reflections.
     
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{$\spinv$}
 
 \begin{frame}{$Spin(V)$} % % % % % % % % % % % % % % % % % % %
 
@@ -119,20 +122,8 @@
     
 \end{frame}
 
-\begin{frame}{$\spinv$ and $\spin^\uparrow(V)$ for general signature} % % % % % % % % % % % % % % % % % % %
-    In Minkowsky spacetime $\spin(\bb M)$ has to be defined in a similar, but different way.
-    
-    \begin{definition}
-    $\spin(V, g)$. Under the adjoint map, this is the double cover of $SO(V, g)$.
-    \end{definition}
-    
-    \begin{definition}
-    $\spin^\uparrow(V, g)$. This is the double cover of $SO^\uparrow(V, g)$.
-    \end{definition}
-    
-    In the example of Minkowski spacetime, \textbf{$\spin^\uparrow(1, 3) \cong SL(2, \CC)$ is the double of $SO^\uparrow(1, 3) = L^\uparrow_+$: the proper orthochronus Lorentz group}.
-    
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{$\spincv$ and Spin groups for general metrics}
 
 \begin{frame}{$Spin^c(V)$} % % % % % % % % % % % % % % % % % % %
 
@@ -152,8 +143,27 @@
     
 \end{frame}
 
+\begin{frame}{$\spin(V, g)$ and $\spin^\uparrow(V, g)$ for general signature} % % % % % % % % % % % % % % % % % % %
+    In Minkowsky spacetime $\spin(\bb M)$ has to be defined in a similar, but different way. Let $a \in \cclv$ define $\defn{\tilde a} = (\chi(a))^t$
+    
+    \begin{definition}
+    $\spin(V, g) = \set{s_1 \cdots s_{2k} \,|\, s_i \in V, \tilde s_i s_i = \pm 1}$. Under the adjoint map, this is the double cover of $SO(V, g)$.
+    \end{definition}
+    
+    For example, any vector $s \in V$ is here, even ``timelike'' vectors.
+    
+    \begin{definition}
+    $\spin^\uparrow(V, g) = \set{s_1 \cdots s_{2k} \,|\, s_i \in V, \tilde s_i s_i =  1}$. This is the double cover of $SO^\uparrow(V, g)$.
+    \end{definition}
+    
+    A vector $e$ such that $g(e, e)=1$ is not in this space, so \textbf{``timelike'' reflections are excluded}.
+    
+    In the example of Minkowski spacetime, \textbf{$\spin^\uparrow(1, 3) \cong SL(2, \CC)$ is the double of $SO^\uparrow(1, 3) = L^\uparrow_+$: the proper orthochronus Lorentz group}.
+    
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Spinor Space / Fermionic Fock Space}
+\section{Spinor Space / Fermionic Fock Space}
 
 \begin{frame}{Complex Structure $J$ and $V$ as a complex vector space} % % % % % % % % % % % % % % % % % % %
     
@@ -236,7 +246,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Representation of $\CC l(V)$: $V$ even-dimensional}
+\subsection{Representation of $\CC l(V)$: $V$ even-dimensional}
 
 \begin{frame}{Fock Space} % % % % % % % % % % % % % % % % % % %
 
@@ -244,7 +254,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     
     Let $\extv_J$ be the (complex) exterior algebra over the (complex) vector space $V_J$.
     
-    On $\extv_J$, induce the complex inner product $\defn{\bra} u_1 \wedge \cdots \wedge u_k, v_1 \wedge \cdots \wedge v_l \defn{\ket}_J := \delta_{kl} det[\bra u_i, v_j \ket_J]$.
+    On $\extv_J$, induce the complex inner product $\defn{\bra} u_1 \wedge \cdots \wedge u_k, v_1 \wedge \cdots \wedge v_l \defn{\ket_J} := \delta_{kl} det[\bra u_i, v_j \ket_J]$.
     
     \begin{definition}
     Let \defn{the Fock Space} $\defn{\mathcal F_J(V)} := \extv_J$. It is a (complex) Hilbert space for the inner product $\bra \cdot, \cdot \ket_J$. Its elements are called \defn{spinors}. Choose a unit vector $\defn{\Omega} \in \CC \subset \fjv$ and call it \defn{the vacuum vector of \fjv}.
@@ -280,7 +290,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     
     It is this multiplication what will formalize the $\slashed D = \gamma^\mu ( \partial_\mu + i \mu A_\mu)$ operator in the Dirac equation.
     
-    Furthermore, the way $\spinv \subset \cclv$ acts on spinors, in the even dimensional case (e.g. Minkowski) will tell us that Fock space is divided in $2$: left handed spinors, and right handed spinors.
+    Furthermore, the way $\spinv \subset \cclv$ acts on spinors, in the even dimensional case (e.g. Minkowski) will tell us that \textbf{Fock space is divided in $2$: left handed spinors, and right handed spinors}.
     
 \end{frame}
 
@@ -293,26 +303,25 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     
     \[ a_J(v) (u_1 \wedge \cdots \wedge u_k) := \sum_{j = 1}^k \bra v, u_j \ket_J \wedge u_1 \wedge \cdots \wedge \hat u_j \wedge \cdots  \wedge u_k \]
     
-    \defn{The Clifford action} of $\cclv$ on the Fock space is induced by the action of $v \in V$, which is defined by:
+    \defn{The Clifford action} of $\cclv$ on the Fock space is extended to $\cclv$ by the action of $v \in V$, which is defined by:
     
     \[ \defn{\pi_J(}v\defn{)} := a_J(v) + a_J^\dagger(v) \]
-
 \end{frame}
 
 \begin{frame}{Representation of $\cclv$ in polarized \fjv} % % % % % % % % % % % % % % % % % % %
     
-    For $v \in V$, let \defn{the creation operator $a^\dagger_J($}v\defn{$)$} be:
-    \[ a^\dagger(v) (u_1 \wedge \cdots \wedge u_k) := v \wedge u_1 \wedge \cdots \wedge u_k \]
+    For $w \in W$, let \defn{$\epsilon($}w\defn{$)$} and \defn{$\iota($}$\conj{w}$\defn{$)$} $:\extwj \to \extwj$ be defined by
     
-    And \defn{the annihilation operator $a_J($}v\defn{$)$} by:
+    $\epsilon(w)(\alpha) := w \wedge \alpha$\\
+    $\iota(\conj{w})(w_1 \wedge \cdots \wedge w_k := \sum_{j = 1}^k \bbra w, w_j \kket \wedge w_1 \wedge \cdots \wedge \hat w_j \wedge \cdots  \wedge w_k$.
     
-    \[ a_J(v) (u_1 \wedge \cdots \wedge u_k) := \sum_{j = 1}^k  (-1)^{j-1}\bra v, u_j \ket_J\, u_1 \wedge \cdots \wedge \hat u_j \wedge \cdots  \wedge u_k \]
+    Finally, the action of $V$ on $\extwj$ is defined by:
     
-    \defn{The Clifford action} of $\cclv$ on the Fock space is induced by the action of $v \in V$, which is defined by:
+    \[\pi_J(v) = \epsilon(P_J v) + \iota(P_{-J} v)\]
     
-    \[ \defn{\pi_J(}v\defn{)} := a_J(v) + a_J^\dagger(v) \]
+    It is easy to see that the actions of $\cclv$ on the polarized and unpolarized Fock space are equivalent.
     
-    We will see that this is the unique irreducible representation of $\cclv$.
+    We will see that this is the unique irreducible representation of $\cclv$, so \textbf{all Fock spaces are equivalent}.
     
 \end{frame}
 
@@ -325,7 +334,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     When the action of $\spinv$ and $\spincv$, $\mathcal F$ decomposes into irreducible representations $\mathcal F = \mathcal F^+ \oplus \mathcal F^-$. \textbf{i.e. there are $2$ types of spinors: ``left handed'' and ``right handed''}. \tiny {In our view of Fock space $\mathcal F^+ = \bigwedge^{even}V_J$, $\mathcal F^- = \bigwedge^{odd}V_J$. }
     \end{theorem}
     
-    \begin{proposition} $\gamma$ acts as a $\ZZ_2$-grading operator on the Fock space. So,  $\pi_J(\gamma) \mathcal F^+ = \mathcal F^+$ and $\pi_J(\gamma) \mathcal F^- = -\mathcal F^-$. \end{proposition}%, which is the exterior algebra grading. ... useful, perhaps, because of teoremita de orden normal? -> \textbf{2 types of spinors} (which act differently by Spin, so act differently by SL( . , C)?)
+    \begin{proposition} $\gamma$ acts as a $\ZZ_2$-grading operator on the Fock space. So,  $\pi_J(\gamma)|_{\mathcal F^+} = Id$ and $\pi_J(\gamma)|_{\mathcal F^-} = -Id$. \end{proposition}%, which is the exterior algebra grading. ... useful, perhaps, because of teoremita de orden normal? -> \textbf{2 types of spinors} (which act differently by Spin, so act differently by SL( . , C)?)
 
 \end{frame}
 
@@ -378,17 +387,35 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
 
 \begin{frame}{Example: $\mathcal F(\RR^{1, 3})$} % % % % % % % % % % % % % % % % % % %
     
-    Similarly, for $\RR^4$ with the metric of signature $(+, -, -, -)$, the spin group $\spin^\uparrow(\RR^{1, 3}) \cong SL(2, \CC)$ is the double cover of $SO^\uparrow(1, 3) = L^\uparrow_+$
+    The results we obtain are familiar from a particle physics class. 
+    
+    The elements of \textbf{$\mathcal F(\RR^{1, 3})$ are called \defn{Dirac spinors}}.
+    
+    For $\RR^4$ with the metric of signature $(+, -, -, -)$, the spin group $\spin^\uparrow(\RR^{1, 3}) \cong SL(2, \CC)$ is the double cover of $SO^\uparrow(1, 3) = L^\uparrow_+$.
+    
+    The action of $SL(2, \CC)$ decomposes $\mathcal F(\bb M)$ into $\mathcal F^+ \oplus \mathcal F^-$, where the elements of $\mathcal F^+$ are called \defn{left handed Weyl spinors}, and the elements of $\mathcal F^-$ are \defn{right handed Weyl spinors}.
     
 \end{frame}
 
+
+\begin{frame}{Example (Cont.): $\mathcal F(\RR^{1, 3})$} % % % % % % % % % % % % % % % % % % %
+    As $\mathcal F$ has (complex) dimension $4 = 2^2$, that breaks up into $2$ dimensional spaces, we may see the elements of $\pi \in \mathcal F^+$ and $\eta \in \mathcal F^-$ as $2$-column vectors. 
+    
+    In that case a Dirac spinor $\Psi \in \mathcal F$ is seen as a $4$-column vector $\Psi = \begin{pmatrix}\pi \\ \eta\end{pmatrix}$.
+    
+    Let $\Lambda \in SL(2, \CC)$ be a matrix (of $2$) that corresponds to the Lorentz transformation $L \in L^\uparrow_+$.
+    
+    In that case, the action of the spin group on a Dirac spinor is seen to be:
+    
+    \[ \begin{pmatrix}\pi \\ \eta\end{pmatrix} \mapsto \begin{pmatrix} \Lambda & 0 \\ 0 & \conj{\Lambda} \end{pmatrix} \begin{pmatrix}\pi \\ \eta\end{pmatrix}\]
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Representation of $\CC l(V)$: $V$ odd-dimensional}
+\subsection{Representation of $\CC l(V)$: $V$ odd-dimensional}
 
 \begin{frame}{Fock Space: odd dimension} % % % % % % % % % % % % % % % % % % %
     As $V$ is odd dimensional, it can not have a complex structure, so it is not clear what Fock space is.
     
-    Let $U = span_\RR\set{e_1, \dots, e_{2m}} \subset V$. \defn{The Fock space} will be a fock space of $\mathcal F_J(U)$.
+    Let $U = span_\RR\set{e_1, \dots, e_{2m}} \subset V$. \defn{The Fock space} will be a fock space $\mathcal F_J(U)$.
     
     $\CC l(U) \cong \cclv^+$ via the algebra isomorphism extended from $u \in U \mapsto iue_{2m+1}$, so that $\mathcal F_J(U)$ is an irreducible rep. of $\cclv^+$.
     
@@ -407,7 +434,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
 \end{frame}
 
 \begin{frame}{Summary of Representations of $\cclv$} % % % % % % % % % % % % % % % % % % %
-    Given a vector space $V$, with a metric of any signature, the Fock space $\mathcal F(V)$ can be seen as the space where all the irreducible representations of $\cclv$ act.
+    Given a vector space $V$, with a metric of any signature, \textbf{the Fock space $\mathcal F(V)$ can be seen as the space where all the irreducible representations of $\cclv$ act}.
 
     In general: $dim_\CC (\mathcal F(V)) = 2^{\lfloor\frac{dim_\RR V}{2} \rfloor}$
     
