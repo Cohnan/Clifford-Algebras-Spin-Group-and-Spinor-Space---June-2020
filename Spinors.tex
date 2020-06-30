@@ -50,9 +50,9 @@
         \end{itemize}
 
     \begin{lemma}
-    For $x, v \in V$ ($g$ of any signature), $-Ad_x(v) = v - 2 \frac{g(x, v)}{g(x, x)} = $ ``\textbf{Reflection} of $v$ with respect to to the plane orthogonal to $x$''. So, $Ad_x \in O(V, g)$ when applied to $V\subset \cclv$.
+    For $x, v \in V$ ($g$ of any signature), $-Ad_x(v) = v - 2 \frac{g(x, v)}{g(x, x)}x = $ ``\textbf{Reflection} of $v$ with respect to to the plane orthogonal to $x$''. So, $Ad_x \in O(V, g)$ when applied to $V\subset \cclv$.
     \end{lemma}
-    \begin{proof} $-xvx^\inv = -(2g(x, v)x^\inv - v x x^\inv) = v - 2 \frac{g(x, v)}{g(x, x)}$
+    \begin{proof} $-xvx^\inv = -(2g(x, v)x^\inv - v x x^\inv) = v - 2 \frac{g(x, v)}{g(x, x)}x$
     \end{proof}
     
     Finally, it is not hard to see that \textbf{applying $2$ / an even amount of reflections is a rotation: $Ad_{x_1 x_2}\in SO(V, g)$}; \\the converse is also true: every rotation of $V$ may be written as an even product of reflections.
@@ -150,13 +150,13 @@
     $\spin(V, g) = \set{s_1 \cdots s_{2k} \,|\, s_i \in V, \tilde s_i s_i = \pm 1}$. Under the adjoint map, this is the double cover of $SO(V, g)$.
     \end{definition}
     
-    For example, any vector $s \in V$ is here, even ``timelike'' vectors.
+    For example, any vector $s \in V$ can compose an element here, even ``timelike'' vectors.
     
     \begin{definition}
     $\spin^\uparrow(V, g) = \set{s_1 \cdots s_{2k} \,|\, s_i \in V, \tilde s_i s_i =  1}$. This is the double cover of $SO^\uparrow(V, g)$.
     \end{definition}
     
-    A vector $e$ such that $g(e, e)=1$ is not in this space, so \textbf{``timelike'' reflections are excluded}.
+    A vector $e$ such that $g(e, e)=1$ is not in this space, so \textbf{``timelike'' reflections are excluded} from composing elements of  $\spin^\uparrow(V, g)$.
     
     In the example of Minkowski spacetime, \textbf{$\spin^\uparrow(1, 3) \cong SL(2, \CC)$ is the double of $SO^\uparrow(1, 3) = L^\uparrow_+$: the proper orthochronus Lorentz group}.
     
@@ -280,7 +280,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     
     So, a generic element of $\mathcal F(\RR^{2m})$ is: \quad $z_0 + z_{1,1}e_1 + \cdots + z_{1,m} e_m + z_{2, 12} e_1\wedge e_2 + \cdots z_{2, m-1\, m} e_{m-1} \wedge e_{m} + \cdots + z_{m, 1\cdots m} e_1 \wedge e_2 \wedge \cdots \wedge e_m $
     
-    For instance, \[(1+i) (3-i)e_1 \wedge e_2 = (1+i) - i(3-i) e_1 \wedge e_4 \in \mathcal F(\RR^4)\]
+    For instance, \[(1+i) + (3-i)e_1 \wedge e_2 = (1+i) - i(3-i) e_1 \wedge e_4 \in \mathcal F(\RR^4)\]
     
 \end{frame}
 
@@ -288,9 +288,11 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
 
     We can think a representation of $\cclv$ in Fock space as saying that we can multiply elements of $\cclv$ by spinors to obtain other spinors. 
     
-    It is this multiplication what will formalize the $\slashed D = \gamma^\mu ( \partial_\mu + i \mu A_\mu)$ operator in the Dirac equation.
+    It is this multiplication what will formalize the $\slashed D = \gamma^\mu ( \partial_\mu + i A_\mu)$ operator in the \textbf{Dirac equation}, which describes the dynamics of spinor fields e.g. electrons.
     
     Furthermore, the way $\spinv \subset \cclv$ acts on spinors, in the even dimensional case (e.g. Minkowski) will tell us that \textbf{Fock space is divided in $2$: left handed spinors, and right handed spinors}.
+    
+    From a more general perspective, \textbf{if the algebra that satisfies the CAR relations for vectors in $V$ is to be considered a space of operators, its representations tell us on what objects those operators may act upon}.
     
 \end{frame}
 
@@ -301,7 +303,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     
     And \defn{the annihilation operator $a_J($}v\defn{$)$} by:
     
-    \[ a_J(v) (u_1 \wedge \cdots \wedge u_k) := \sum_{j = 1}^k \bra v, u_j \ket_J \wedge u_1 \wedge \cdots \wedge \hat u_j \wedge \cdots  \wedge u_k \]
+    \[ a_J(v) (u_1 \wedge \cdots \wedge u_k) := \sum_{j = 1}^k (-1)^{j-1} \bra v, u_j \ket_J \, u_1 \wedge \cdots \wedge \hat u_j \wedge \cdots  \wedge u_k \]
     
     \defn{The Clifford action} of $\cclv$ on the Fock space is extended to $\cclv$ by the action of $v \in V$, which is defined by:
     
@@ -313,7 +315,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     For $w \in W$, let \defn{$\epsilon($}w\defn{$)$} and \defn{$\iota($}$\conj{w}$\defn{$)$} $:\extwj \to \extwj$ be defined by
     
     $\epsilon(w)(\alpha) := w \wedge \alpha$\\
-    $\iota(\conj{w})(w_1 \wedge \cdots \wedge w_k := \sum_{j = 1}^k \bbra w, w_j \kket \wedge w_1 \wedge \cdots \wedge \hat w_j \wedge \cdots  \wedge w_k$.
+    $\iota(\conj{w})(w_1 \wedge \cdots \wedge w_k := \sum_{j = 1}^k (-1)^{j-1} \bbra w, w_j \kket \, w_1 \wedge \cdots \wedge \hat w_j \wedge \cdots  \wedge w_k$.
     
     Finally, the action of $V$ on $\extwj$ is defined by:
     
@@ -328,7 +330,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
 \begin{frame}{Theorems about Fock Space: even dimension} % % % % % % % % % % % % % % % % % % %
     \begin{theorem} It is the \textbf{unique} \emph{irreducible} algebra representation of $\CC l(V)$.\end{theorem}% irrep part comes immediately from Schur's lemma
 
-    \begin{theorem}$\pi_J$ is a selfadjoint ($\pi_J(a^*) = \pi_J(a)^\dagger$) representation of the *-algebra $\CC l(V)$.\end{theorem}%: comes ``easily'' from knowing what the actio of $w \in W_J$ is. WE MIGHT AS WELL SAY SPINORS ARE THOSE THINGS THAT ARE ACTED ON BY SPIN/CLIFFORD.
+    \begin{theorem}$\pi_J$ is an \emph{involutive} ($\pi_J(a^*) = \pi_J(a)^\dagger$) representation of the *-algebra $\CC l(V)$.\end{theorem}%: comes ``easily'' from knowing what the actio of $w \in W_J$ is. WE MIGHT AS WELL SAY SPINORS ARE THOSE THINGS THAT ARE ACTED ON BY SPIN/CLIFFORD.
     
     \begin{theorem}
     When the action of $\spinv$ and $\spincv$, $\mathcal F$ decomposes into irreducible representations $\mathcal F = \mathcal F^+ \oplus \mathcal F^-$. \textbf{i.e. there are $2$ types of spinors: ``left handed'' and ``right handed''}. \tiny {In our view of Fock space $\mathcal F^+ = \bigwedge^{even}V_J$, $\mathcal F^- = \bigwedge^{odd}V_J$. }
@@ -343,7 +345,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     
     It is important to notice that $\pi_J(e_2) \neq i \pi_J(e_1)$, because we are considering $e_1, e_2$ as elements of $V^\CC \subset \CC l(\RR^2)$, so $e_2 \neq i e_1$.
     
-    To determine the action of $\CC l(\RR^2)$ it is enough to determine the action of the (real basis) $\set{e_1, e_2}$.
+    To determine the action of $\CC l(\RR^2)$ it is enough to determine the action of the (real) basis $\set{e_1, e_2}$.
     
     
     $\pi_J(e_1) (z_1) = z_1 e_1$\\
@@ -351,7 +353,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     
     
     $\pi_J(e_2) (z_1) = z_1 e_2 = -i z_1 e_1$ \\
-    $\pi_J(e_2)(z_2 e_1) = z_2 e_2 \wedge e_1 + z_2 \bra e_2, e_1\ket_J = i z_2 e_1 \wedge e_1 \bra i e_1, e_1 \ket_J = -i z_2$.
+    $\pi_J(e_2)(z_2 e_1) = z_2 e_2 \wedge e_1 + z_2 \bra e_2, e_1\ket_J = i z_2 e_1 \wedge e_1 + z_2\bra i e_1, e_1 \ket_J = -i z_2$.
     
 \end{frame}
 
@@ -360,7 +362,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     
     So, $\pi_J(\gamma) (z_1 + z_2 e_1) = -i \pi_J(e_1)(-iz_2 + iz_1e_1) = z_1 - z_2 e_1$.
     
-   This means that $z_1 \in \mathcal F ^+ = \bigwedge^0 \RR^2$, y para $z_2 e_1 \in \mathcal F ^- = \bigwedge^1 \RR^2$:
+   This means that $z_1 \in \mathcal F ^+ = \bigwedge^0 \RR^2$, and for $z_2 e_1 \in \mathcal F ^- = \bigwedge^1 \RR^2$:
     
     $\pi_J(\gamma)(z_1) = z_1$ \quad and for \\
     $\pi_J(\gamma)(z_2 e_1) = -z_2 e_1$.
@@ -375,10 +377,10 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
 \begin{frame}{Example(Cont.): Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
     Finally, we see that $Spin(2) = \set{x + y e_1 e_2 \,|\, x, y \in \RR; x^2 + y^2 = 1}$ acts irreducibly in $\mathcal F^+$ and $\mathcal F^-$.
     
-    Notice that $\pi_J(e_1 e_2)(z_1 + z_2 e_1) = iz_1 -iz_2 e_1)$.
+    Notice that $\pi_J(e_1 e_2)(z_1 + z_2 e_1) = iz_1 -iz_2 e_1$.
     
     $\mathcal F^+$:
-        \[ \pi_J(x + y e_1 e_2)(z_1) = xz_1 + iyz_2 \in \mathcal F^+\]
+        \[ \pi_J(x + y e_1 e_2)(z_1) = (xz_1 + iyz_2) \in \mathcal F^+\]
         
     $\mathcal F^-$:
         \[ \pi_J(x + y e_1 e_2)(z_2e_1) = (xz_2 - iyz_2)e_1 \in \mathcal F^-\]
@@ -434,9 +436,9 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
 \end{frame}
 
 \begin{frame}{Summary of Representations of $\cclv$} % % % % % % % % % % % % % % % % % % %
-    Given a vector space $V$, with a metric of any signature, \textbf{the Fock space $\mathcal F(V)$ can be seen as the space where all the irreducible representations of $\cclv$ act}.
+    Given a vector space $V$, with a metric of any signature, \textbf{the Fock space $\mathcal F(V)$ can be seen as the space where all the irreducible representations of $\cclv$ $\equiv$ CAR algebra of (fin.dim.) $V$  act}, and they are $*$-algebra representations.
 
     In general: $dim_\CC (\mathcal F(V)) = 2^{\lfloor\frac{dim_\RR V}{2} \rfloor}$
     
-    In the even dimensional case, like that of Minkowski spacetime, the irreducible representation is unique and it decomposes into $2$ irreducible representations of $\spinv$ (or of $\spin^\uparrow(V, g)$ in the general signature case), giving ``left handed'' and ``right handed'' spinors. %I believe that's the case, because I believe that spinc doesnt depend on the signature of the metric, and that Spin(V, g) is subspace of Spin^c(V).
+    In the even dimensional case, like that of Minkowski spacetime, the irreducible representation is unique and it decomposes into $2$ irreducible representations of $\spinv$ (or of $\spin^\uparrow(V, g)$ in the general signature case), giving \textbf{``left handed'' and ``right handed'' spinors}. %I believe that's the case, because I believe that spinc doesnt depend on the signature of the metric, and that Spin(V, g) is subspace of Spin^c(V).
 \end{frame}
