@@ -5,7 +5,7 @@
 
 \begin{frame}{From now on\dots} % % % % % % % % % % % % % % % % % % %
 
-    Let $n = dim_\RR V$, and $m = \lfloor \frac{n}{2} \rceil$.
+    Let $n = dim_\RR V$, and $m = \lfloor \frac{n}{2} \rfloor$.
 
     From now on we assume that \emph{$g$ is positive definite}, so that $V \cong \RR^n$ as inner-product vector spaces, and so we may write $v_1 \cdot v_2 := g(v_1, v_2)$ for $v_i \in V$. %(even in the big book Elements of Noncommutative Geometry this is assumed). 
     
@@ -52,7 +52,7 @@
     \begin{lemma}
     For $x, v \in V$ ($g$ of any signature), $-Ad_x(v) = v - 2 \frac{g(x, v)}{g(x, x)}x = $ ``\textbf{Reflection} of $v$ with respect to to the plane orthogonal to $x$''. So, $Ad_x \in O(V, g)$ when applied to $V\subset \cclv$.
     \end{lemma}
-    \begin{proof} $-xvx^\inv = -(2g(x, v)x^\inv - v x x^\inv) = v - 2 \frac{g(x, v)}{g(x, x)}x$
+    \begin{proof} $-xvx^\inv = -(2g(x, v) - v x)x^\inv = v - 2 \frac{g(x, v)}{g(x, x)}x$
     \end{proof}
     
     Finally, it is not hard to see that \textbf{applying $2$ / an even amount of reflections is a rotation: $Ad_{x_1 x_2}\in SO(V, g)$}; \\the converse is also true: every rotation of $V$ may be written as an even product of reflections.
@@ -64,8 +64,9 @@
 
 \begin{frame}{$Spin(V)$} % % % % % % % % % % % % % % % % % % %
 
-    \begin{Definition} $\defn{\spinv} := \set{x_1 \cdots x_{2k}: x_i \in V, ||x_i||^2 = x_i^* x_i = 1} \subset \clvg \subset \cclv$
+    \begin{Definition} $\defn{\spinv} := \set{x_1 \cdots x_{2k}: x_i \in V, ||x_i||^2 = x_i^* x_i = 1} \subset \clvg \subset \cclv \, \&\, \subset Unitary(\cclv)$
     \end{Definition}
+    % The restriction of $x$ being unitary has at least 2 motivations: this makes Spin(V) \subset Unitary elements of CL(V) (i.e. unitary when they act by multiplication on Cl(V), not by adjoints); even though Ad_{\lambda v} has the same action as Ad_{v} for any complex constant \lambda, a way to remove the redundancy is by imposing this condition.
     
     We saw that $\spinv$ acts on $V$, via the adjoint representation, by rotations. Furthermore:
     
@@ -137,7 +138,7 @@
     For any element $u \in \spincv$, both all of $\TT u$ map to the same rotation.
     \end{proposition}
     
-    $Spin(V)$ is clearly a subgroup. Furthermore,  defining $\nu: \spinc \to \TT$, $u \mapsto u^! u$, we may identify $ker\,\nu = \spinv$, because that implies that $u^*= u^!$, so $u = \conj u$.
+    $Spin(V)$ is clearly a subgroup. Furthermore,  defining $\nu: \spinc \to \TT$, $u \mapsto u^t u$, we may identify $ker\,\nu = \spinv$, because that implies that $u^*= u^t$, so $u = \conj u$.
     
     $\spincv \cong \spinv \times \TT / \{\pm 1\}$, via the surjective group homomorphism $(Ad|_{\spincv}, \nu): \spincv \to \spinv \times \TT$.
     
@@ -156,7 +157,7 @@
     $\spin^\uparrow(V, g) = \set{s_1 \cdots s_{2k} \,|\, s_i \in V, \tilde s_i s_i =  1}$. This is the double cover of $SO^\uparrow(V, g)$.
     \end{definition}
     
-    A vector $e$ such that $g(e, e)=1$ is not in this space, so \textbf{``timelike'' reflections are excluded} from composing elements of  $\spin^\uparrow(V, g)$.
+    A vector $e$ such that $g(e, e)=1$ doesn't satisfy, so \textbf{``timelike'' reflections are excluded} from composing elements of  $\spin^\uparrow(V, g)$.
     
     In the example of Minkowski spacetime, \textbf{$\spin^\uparrow(1, 3) \cong SL(2, \CC)$ is the double of $SO^\uparrow(1, 3) = L^\uparrow_+$: the proper orthochronus Lorentz group}.
     
@@ -167,7 +168,7 @@
 
 \begin{frame}{Complex Structure $J$ and $V$ as a complex vector space} % % % % % % % % % % % % % % % % % % %
     
-    Suppose that $V$ be even dimensional%, so $V \cong \CC^m$, but not in a canonical way
+    Suppose that $V$ is even dimensional%, so $V \cong \CC^m$, but not in a canonical way
     . A complex structure $J$ is what allows the identification of $V \cong_J \CC^m$ as complex vector spaces.
     
     \begin{definition}
@@ -211,7 +212,7 @@
     $J$ is an operator $:V \to V$ in contrast to the ``operator'' $i: V\subset V^\CC \to iV \subset V^\CC$ and $i:iV \to V$.
     
     \begin{definition}
-    Given an orthogonal complex structure $J$ on $V$, define $\defn{P_J}: V_J \to V^\CC$ by $v \mapsto \frac{1}{2}(1 - iJ)v = \frac{1}{2}(v - \frac{1}{2}iJv)$. We will usually denote by $\defn{w_z} := P_J(v) \in W_J$.\\
+    Given an orthogonal complex structure $J$ on $V$, define $\defn{P_J}: V_J \to V^\CC$ by $v \mapsto \frac{1}{2}(1 - iJ)v = \frac{1}{2}(v - \frac{1}{2}iJv)$. We will usually denote by $\defn{w_v} := P_J(v) \in W_J$.\\
     Define $\defn{W_J} \subset V^\CC$ as the image of $P_J$. We can see that $W_J = \set{v - iJv \,|\, v \in V}$. It is a \textbf{complex vector subspace of $V^\CC$}.\\
     Define $\defn{\conj{W_J}} \subset V^\CC$ as the image of $P_{-J}$. We see that $\conj{W_J} = \set{v + iJv \,|\, v \in V}$.
     \end{definition}
@@ -226,22 +227,24 @@
     
     $W_J$ and $\conj{W_J}$ are orthogonal with respect to this product, so we say that $W_J$ is a \defn{polarization of $V^\CC$}.
     
-    When we restrict $\bbra \cdot , \kket$ to $W_J$ \[P_J: (V_J, \bra \cdot, \cdot \ket_J) \to (W_J, \bbra \cdot, \cdot \kket) \] \textbf{is a unitary ($\bra u, v \ket_J = \bbra w_u, w_v \kket$) isomorphism}.
+    When we restrict $\bbra \cdot , \cdot\kket$ to $W_J$ \[P_J: (V_J, \bra \cdot, \cdot \ket_J) \to (W_J, \bbra \cdot, \cdot \kket) \] \textbf{is a unitary isomorphism}, i.e. $\bra u, v \ket_J = \bbra w_u, w_v \kket$.
     
 \end{frame}
 
 \begin{frame}{Example: $W_J$ for $\RR^4$} % % % % % % % % % % % % % % % % % % %
 
-    In $\RR^4$, recall that, e.g. $J(e_1) = e_3$ and $J(e_3) = -e_1$.
+    In $V = \RR^4$, recall that, e.g. $J(e_1) = e_3 \neq ie_1$ and $J(e_3) = -e_1$.
     \begin{align*}
         W_J &= span_\CC\set{e_1 -i e_3, e_2 - ie_4} \subset{\RR^4 \otimes \CC} \\
-        P_J(e_3) &= ie_1 + 1e_3 \in W_J \\
-        P_J(x e_1 + y e_2 + z e_3) &= (x + iz)e_1 + (y)e_2 + (z - ix)e_3 + (-iy)e_4\in W_J
+        P_J(e_1) &= \frac{1}{2}(e_1 - ie_3) \in W_J \subset \RR^4 + i\RR^4 \\
+        P_J(e_3) &= \frac{1}{2}(ie_1 + e_3) \in W_J \\
+        P_J(e_2) &= \frac{1}{2}(e_2 - ie_4) \in W_J \\
+        P_J(x e_1 + y e_2 + z e_3) &= \frac{x + iz}{2}e_1 + \frac{y}{2}e_2 + \frac{z - ix}{2}e_3 + \frac{-iy}{2} e_4 \in W_J
     \end{align*}
     
 
 
-Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so $W_J$ is indeed a complex vector subspace unlike $V$.
+Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so $W_J$ is indeed a complex vector \emph{subspace} of $V^\CC$ unlike $V$.
 
 \end{frame}
 
@@ -257,7 +260,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     On $\extv_J$, induce the complex inner product $\defn{\bra} u_1 \wedge \cdots \wedge u_k, v_1 \wedge \cdots \wedge v_l \defn{\ket_J} := \delta_{kl} det[\bra u_i, v_j \ket_J]$.
     
     \begin{definition}
-    Let \defn{the Fock Space} $\defn{\mathcal F_J(V)} := \extv_J$. It is a (complex) Hilbert space for the inner product $\bra \cdot, \cdot \ket_J$. Its elements are called \defn{spinors}. Choose a unit vector $\defn{\Omega} \in \CC \subset \fjv$ and call it \defn{the vacuum vector of \fjv}.
+    Let \defn{the Fock Space} $\defn{\mathcal F_J(V)} := \extv_J$. It is a (complex) Hilbert space for the inner product $\bra \cdot, \cdot \ket_J$. Its elements are called \defn{spinors}. Choose a unit vector $\defn{\Omega} \in \CC = \bigwedge^0 V_J \subset \fjv$ and call it \defn{the vacuum vector of \fjv}.
     \end{definition}
 
 \end{frame}
@@ -278,9 +281,15 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     
     Given the standard complex structure of $\RR^{2m}$, as a complex vector space the set $\set{e_1, \dots, e_{\textbf{m}}}$ is an orthonormal basis, so $dim_\CC\RR^{2m} = m$ and $dim_\CC \bigwedge^\bullet \RR^{2m} = 2^m$, because here $i\cdot e_j = e_{j+m}$.
     
-    So, a generic element of $\mathcal F(\RR^{2m})$ is: \quad $z_0 + z_{1,1}e_1 + \cdots + z_{1,m} e_m + z_{2, 12} e_1\wedge e_2 + \cdots z_{2, m-1\, m} e_{m-1} \wedge e_{m} + \cdots + z_{m, 1\cdots m} e_1 \wedge e_2 \wedge \cdots \wedge e_m $
+    So, a generic element of $\mathcal F(\RR^{2m})$ is: 
+    \begin{align*}
+        &z_0 &+ \\&(z_{1,1} \, e_1 + \cdots + z_{1,m} \, e_m) &+\\ 
+        &(z_{2, 12} \, e_1\wedge e_2 + \cdots z_{2, m-1\, m} \, e_{m-1} \wedge e_{m}) &+\\ 
+        &\cdots &+ \\
+        &z_{m, 1\cdots m} \, e_1 \wedge e_2 \wedge \cdots \wedge e_m 
+    \end{align*}
     
-    For instance, \[(1+i) + (3-i)e_1 \wedge e_2 = (1+i) - i(3-i) e_1 \wedge e_4 \in \mathcal F(\RR^4)\]
+    For instance, \[(1+i) + (3-i)e_1 \wedge e_4 = (1+i) + i(3-i) e_1 \wedge e_2 \in \mathcal F(\RR^4)\]
     
 \end{frame}
 
@@ -302,11 +311,9 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     \[ a^\dagger(v) (u_1 \wedge \cdots \wedge u_k) := v \wedge u_1 \wedge \cdots \wedge u_k \]
     
     And \defn{the annihilation operator $a_J($}v\defn{$)$} by:
-    
     \[ a_J(v) (u_1 \wedge \cdots \wedge u_k) := \sum_{j = 1}^k (-1)^{j-1} \bra v, u_j \ket_J \, u_1 \wedge \cdots \wedge \hat u_j \wedge \cdots  \wedge u_k \]
     
-    \defn{The Clifford action} of $\cclv$ on the Fock space is extended to $\cclv$ by the action of $v \in V$, which is defined by:
-    
+    \defn{The Clifford action} of $\cclv$ on the Fock space is extended, through the universal property, to $\cclv$ from the action of $v \in V$, which is defined by:
     \[ \defn{\pi_J(}v\defn{)} := a_J(v) + a_J^\dagger(v) \]
 \end{frame}
 
@@ -315,7 +322,7 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     For $w \in W$, let \defn{$\epsilon($}w\defn{$)$} and \defn{$\iota($}$\conj{w}$\defn{$)$} $:\extwj \to \extwj$ be defined by
     
     $\epsilon(w)(\alpha) := w \wedge \alpha$\\
-    $\iota(\conj{w})(w_1 \wedge \cdots \wedge w_k := \sum_{j = 1}^k (-1)^{j-1} \bbra w, w_j \kket \, w_1 \wedge \cdots \wedge \hat w_j \wedge \cdots  \wedge w_k$.
+    $\iota(\conj{w})(w_1 \wedge \cdots \wedge w_k) := \sum_{j = 1}^k (-1)^{j-1} \bbra w, w_j \kket \, w_1 \wedge \cdots \wedge \hat w_j \wedge \cdots  \wedge w_k$.
     
     Finally, the action of $V$ on $\extwj$ is defined by:
     
@@ -336,54 +343,96 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     When the action of $\spinv$ and $\spincv$, $\mathcal F$ decomposes into irreducible representations $\mathcal F = \mathcal F^+ \oplus \mathcal F^-$. \textbf{i.e. there are $2$ types of spinors: ``left handed'' and ``right handed''}. \tiny {In our view of Fock space $\mathcal F^+ = \bigwedge^{even}V_J$, $\mathcal F^- = \bigwedge^{odd}V_J$. }
     \end{theorem}
     
-    \begin{proposition} $\gamma$ acts as a $\ZZ_2$-grading operator on the Fock space. So,  $\pi_J(\gamma)|_{\mathcal F^+} = Id$ and $\pi_J(\gamma)|_{\mathcal F^-} = -Id$. \end{proposition}%, which is the exterior algebra grading. ... useful, perhaps, because of teoremita de orden normal? -> \textbf{2 types of spinors} (which act differently by Spin, so act differently by SL( . , C)?)
+    \begin{proposition} $\gamma$ acts as a $\ZZ_2$-grading operator on the Fock space. So,  $\pi_J(\gamma)|_{\mathcal F^+} = +Id$ and $\pi_J(\gamma)|_{\mathcal F^-} = -Id$. \end{proposition}%, which is the exterior algebra grading. ... useful, perhaps, because of teoremita de orden normal? -> \textbf{2 types of spinors} (which act differently by Spin, so act differently by SL( . , C)?)
 
 \end{frame}
 
 \begin{frame}{Example: Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
-    We can see that $\mathcal F(\RR^2) = \set{z_1 + z_2 e_1}$, because $\set{e_1}$ alone is a basis for $\RR^2$ as a complex v. space.
+    We can see that $\mathcal F(\RR^2) = \set{z_0 + z_1 e_1}$, because $\set{e_1}$ alone is a basis for $\RR^2$ as a complex v. space.
     
     It is important to notice that $\pi_J(e_2) \neq i \pi_J(e_1)$, because we are considering $e_1, e_2$ as elements of $V^\CC \subset \CC l(\RR^2)$, so $e_2 \neq i e_1$.
     
     To determine the action of $\CC l(\RR^2)$ it is enough to determine the action of the (real) basis $\set{e_1, e_2}$.
     
     
-    $\pi_J(e_1) (z_1) = z_1 e_1$\\
-    $\pi_J(e_1)(z_2 e_1) = z_2 e_1 \wedge e_1 + z_2 \bra e_1, e_1\ket_J = z_2$.
+    $\pi_J(e_1) (z_0) = z_0 e_1$\\
+    $\pi_J(e_1)(z_1 e_1) = z_1 e_1 \wedge e_1 + z_1 \bra e_1, e_1\ket_J = z_1$.
     
     
-    $\pi_J(e_2) (z_1) = z_1 e_2 = -i z_1 e_1$ \\
-    $\pi_J(e_2)(z_2 e_1) = z_2 e_2 \wedge e_1 + z_2 \bra e_2, e_1\ket_J = i z_2 e_1 \wedge e_1 + z_2\bra i e_1, e_1 \ket_J = -i z_2$.
+    $\pi_J(e_2) (z_0) = z_0 e_2 = -i z_0 e_1$ \\
+    $\pi_J(e_2)(z_1 e_1) = z_1 e_2 \wedge e_1 + z_1 \bra e_2, e_1\ket_J = i z_1 e_1 \wedge e_1 + z_1\bra i\tiny{ \cdot }e_1, e_1 \ket_J = -i z_1$
     
 \end{frame}
 
 \begin{frame}{Example(Cont.): Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
     Now, $\gamma = -i e_1 e_2 \in \CC l(\RR^2)$.
     
-    So, $\pi_J(\gamma) (z_1 + z_2 e_1) = -i \pi_J(e_1)(-iz_2 + iz_1e_1) = z_1 - z_2 e_1$.
+    So, $\pi_J(\gamma) (z_0 + z_1 e_1) = -i \pi_J(e_1)(-iz_1 + iz_0e_1) = z_0 - z_1 e_1$.
     
-   This means that $z_1 \in \mathcal F ^+ = \bigwedge^0 \RR^2$, and for $z_2 e_1 \in \mathcal F ^- = \bigwedge^1 \RR^2$:
+   This means that for $z_0 \in \rtext{\mathcal F ^+ = \bigwedge^0 \RR^2}$, and $z_1 e_1 \in \rtext{\mathcal F ^- = \bigwedge^1 \RR^2}$:
     
-    $\pi_J(\gamma)(z_1) = z_1$ \quad and for \\
-    $\pi_J(\gamma)(z_2 e_1) = -z_2 e_1$.
+    $\pi_J(\gamma)(z_0) = z_0$ \quad and for \\
+    $\pi_J(\gamma)(z_1 e_1) = -z_1 e_1$.
     
     Therefore $\frac{1}{2}(1 \pm \gamma)$ are orthogonal projectors into $\mathcal F^\pm$:
     
-    $\pi_J(\frac{1}{2}(1+\gamma))(z_1 + z_2e_1) = z_1 \in \mathcal F^+$ \quad and\\
-    $\pi_J(\frac{1}{2}(1-\gamma))(z_1 + z_2e_1) = z_2 e_1 \in \mathcal F^-$.
+    $\pi_J(\frac{1}{2}(1+\gamma))(z_0 + z_1e_1) = z_0 \in \mathcal F^+$ \quad and\\
+    $\pi_J(\frac{1}{2}(1-\gamma))(z_0 + z_1e_1) = z_1 e_1 \in \mathcal F^-$.
 
 \end{frame}
 
 \begin{frame}{Example(Cont.): Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
     Finally, we see that $Spin(2) = \set{x + y e_1 e_2 \,|\, x, y \in \RR; x^2 + y^2 = 1}$ acts irreducibly in $\mathcal F^+$ and $\mathcal F^-$.
     
-    Notice that $\pi_J(e_1 e_2)(z_1 + z_2 e_1) = iz_1 -iz_2 e_1$.
+    Notice that $\pi_J(e_1 e_2)(z_0 + z_1 e_1) = iz_0 -iz_1 e_1$.
     
     $\mathcal F^+$:
-        \[ \pi_J(x + y e_1 e_2)(z_1) = (xz_1 + iyz_2) \in \mathcal F^+\]
+        \[ \pi_J(x + y e_1 e_2)(z_0) = (xz_0 + iyz_1) \in \mathcal F^+\]
         
     $\mathcal F^-$:
-        \[ \pi_J(x + y e_1 e_2)(z_2e_1) = (xz_2 - iyz_2)e_1 \in \mathcal F^-\]
+        \[ \pi_J(x + y e_1 e_2)(z_1e_1) = (xz_1 - iyz_1)e_1 \in \mathcal F^-\]
+
+\end{frame}
+
+\begin{frame}{Example(Another View): Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
+    
+    \begin{itemize}
+    
+    \item $\mathcal F(\RR^2) \cong \CC^2$:
+    
+        \begin{itemize}
+        
+        \item $\frac{1}{2}(e_1 + ie_2) \mapsto \begin{pmatrix} 1\\ 0 \end{pmatrix}$
+        
+        \item $\frac{1}{2}(1 + ie_1e_2) \mapsto \begin{pmatrix} 0\\ 1 \end{pmatrix}$
+        
+        Then:
+        
+        \item $\mathcal F(\RR^2)^+ = span\{\begin{pmatrix} 1\\ 0 \end{pmatrix}\}$
+        
+        \item $\mathcal F(\RR^2)^- = span\{\begin{pmatrix} 0\\ 1 \end{pmatrix}\}$
+        
+        \end{itemize}
+    
+    \item $\CC l(\RR^2) \cong M_2(\CC)$
+    
+        \begin{itemize}
+        
+        \item $e_1 \subset V = \RR^2 \mapsto \sigma_1 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$
+        
+        \item $e_2 \subset V = \RR^2 \mapsto \sigma_2 = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}$
+        
+        
+        Then:
+        
+        \item $\gamma = \sigma_3 \in \CC l(\RR^2)$
+        
+        \item The action is simply matrix multiplication!
+        
+        \end{itemize}
+    
+    \end{itemize}
+    
 
 \end{frame}
 
@@ -417,11 +466,11 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
 \begin{frame}{Fock Space: odd dimension} % % % % % % % % % % % % % % % % % % %
     As $V$ is odd dimensional, it can not have a complex structure, so it is not clear what Fock space is.
     
-    Let $U = span_\RR\set{e_1, \dots, e_{2m}} \subset V$. \defn{The Fock space} will be a fock space $\mathcal F_J(U)$.
+    Let $U = span_\RR\set{e_1, \dots, e_{2m}} \subset V$. \defn{The Fock space} will be any fock space $\mathcal F_J(U)$.
     
     $\CC l(U) \cong \cclv^+$ via the algebra isomorphism extended from $u \in U \mapsto iue_{2m+1}$, so that $\mathcal F_J(U)$ is an irreducible rep. of $\cclv^+$.
     
-    The algebra $\cclv$ is \emph{generated} by $\cclv^+$ together with the central element $\gamma$, in the sense that any $a \in \cclv = b_1 + \gamma b_2$ with $b \in \cclv^+$, because $\gamma^2 = 1$ and $\gamma$ is of odd degree.
+    The algebra $\cclv$ is \emph{generated} by $\cclv^+$ together with the central element $\gamma$, in the sense that any $a \in \cclv = b_1 + \gamma b_2$ with $b_i \in \cclv^+$, because $\gamma^2 = 1$ and $\gamma$ is of odd degree.
     
 
 \end{frame}
