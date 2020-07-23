@@ -352,16 +352,51 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     
     It is important to notice that $\pi_J(e_2) \neq i \pi_J(e_1)$, because we are considering $e_1, e_2$ as elements of $V^\CC \subset \CC l(\RR^2)$, so $e_2 \neq i e_1$.
     
-    To determine the action of $\CC l(\RR^2)$ it is enough to determine the action of the (real) basis $\set{e_1, e_2}$.
+    To determine the action of $\CC l(\RR^2)$ it is enough to determine the action of the (real) basis $\set{e_1, e_2}$ of $V = \RR^2$.
     
     
     $\pi_J(e_1) (z_0) = z_0 e_1$\\
     $\pi_J(e_1)(z_1 e_1) = z_1 e_1 \wedge e_1 + z_1 \bra e_1, e_1\ket_J = z_1$.
     
     
-    $\pi_J(e_2) (z_0) = z_0 e_2 = -i z_0 e_1$ \\
+    $\pi_J(e_2) (z_0) = z_0 e_2 = i z_0 e_1$ \\
     $\pi_J(e_2)(z_1 e_1) = z_1 e_2 \wedge e_1 + z_1 \bra e_2, e_1\ket_J = i z_1 e_1 \wedge e_1 + z_1\bra i\tiny{ \cdot }e_1, e_1 \ket_J = -i z_1$
     
+\end{frame}
+
+\begin{frame}{Example(Cont.): Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
+    This suggests another representation of $\mathcal F(\RR^2)$ and of $\CC l(\RR^2)$:
+    
+    Since $dim_{\CC} \mathcal F(\RR^2) = 2$, then $\mathcal F(\RR^2) \cong \CC^2$.
+    
+    $\rtext{\mathcal F^+(\RR^2) = \bigwedge^0 \RR^2_J} = span_\CC\set{1}$ and $\rtext{\mathcal F^-(\RR^2) = \bigwedge^0 \RR^2_J} = span_\CC\set{e_1}$ are subspaces, so a possible explicit isomorphism / way to understand $\mathcal F(\RR^2)$ as $\CC^2$ is:
+    \begin{align}
+        z_0 \in \mathcal F^+(\RR^2) &\mapsto \twov{z_0}{0} \in \CC^2\\
+        z_1e_1 \in \mathcal F^+(\RR^2) &\mapsto \twov{0}{z_1} \in \CC^2
+    \end{align}
+
+\end{frame}
+
+\begin{frame}{Example(Cont.): Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
+    In that case, each element of $\CC l(\RR^2)$ act on $\mathcal F(\RR^2) = \CC^2$ as a matrix in $M_2(\CC)$, and the Clifford algebra multiplication is simply multiplication of matrices:
+    \begin{multicols}{2}
+    \begin{equation}
+    \begin{tikzcd}
+        {\pi_J(e_1)(z_0) = z_0 e_1\\
+        \pi_J(e_1)(z_1 e_1) = z_1 \arrow{d}}\\
+        \pi_J(e_1) = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \rtext{= \sigma_1}
+    \end{tikzcd}
+    \end{equation}
+    
+    \begin{equation}
+    \begin{tikzcd}
+        \pi_J(e_2)(z_0) = iz_0 e_1\\
+        \pi_J(e_2)(z_1 e_1) = -iz_1 \arrow{d}\\
+        \pi_J(e_2) = \begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix} \rtext{= \sigma_2}
+    \end{tikzcd}
+    \end{equation}
+    \end{multicols}
+    Since $\pi_J(1) = Id_{2}$ and $\pi_J(e_1e_2) = i \sigma_3$ \then $\pi_J(\CC l(\RR^2)) = M_2(\CC)$.
 \end{frame}
 
 \begin{frame}{Example(Cont.): Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
@@ -369,22 +404,37 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
     
     So, $\pi_J(\gamma) (z_0 + z_1 e_1) = -i \pi_J(e_1)(-iz_1 + iz_0e_1) = z_0 - z_1 e_1$.
     
-   This means that for $z_0 \in \rtext{\mathcal F ^+ = \bigwedge^0 \RR^2}$, and $z_1 e_1 \in \rtext{\mathcal F ^- = \bigwedge^1 \RR^2}$:
+   This means that for $z_0 \in \mathcal F ^+ = \bigwedge^0 \RR^2$, and $z_1 e_1 \in \mathcal F ^- = \bigwedge^1 \RR^2$:
     
     $\pi_J(\gamma)(z_0) = z_0$ \quad and for \\
     $\pi_J(\gamma)(z_1 e_1) = -z_1 e_1$.
+    
+    Alternatively, understanding $\mathcal F(\RR^2)$ as $\CC^2$:
+    \begin{align}
+        \pi_J(\gamma) = -i \sigma_1 \sigma_2 = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \rtext{= \sigma_3} = \sigma_z
+    \end{align}
+
+\end{frame}
+
+\begin{frame}{Example(Cont.): Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
     
     Therefore $\frac{1}{2}(1 \pm \gamma)$ are orthogonal projectors into $\mathcal F^\pm$:
     
     $\pi_J(\frac{1}{2}(1+\gamma))(z_0 + z_1e_1) = z_0 \in \mathcal F^+$ \quad and\\
     $\pi_J(\frac{1}{2}(1-\gamma))(z_0 + z_1e_1) = z_1 e_1 \in \mathcal F^-$.
+    
+    which is clear since, understanding $\mathcal F(\RR^2)$ as $\CC^2$:
+    \begin{align*}
+        \pi_J\left(\frac{1}{2}(1+\gamma)\right) = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\\
+        \pi_J\left(\frac{1}{2}(1-\gamma)\right) = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}
+    \end{align*}
 
 \end{frame}
 
 \begin{frame}{Example(Cont.): Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
-    Finally, we see that $Spin(2) = \set{x + y e_1 e_2 \,|\, x, y \in \RR; x^2 + y^2 = 1}$ acts irreducibly in $\mathcal F^+$ and $\mathcal F^-$.
+    Finally, we see that $Spin(2) = \set{x + y e_1 e_2 \,|\, x, y \in \RR; x^2 + y^2 = 1}$ acts irreducibly in $\mathcal F^+$ and $\mathcal F^-$:
     
-    Notice that $\pi_J(e_1 e_2)(z_0 + z_1 e_1) = iz_0 -iz_1 e_1$.
+    Notice that $\pi_J(e_1 e_2)(z_0 + z_1 e_1) = iz_0 -iz_1 e_1$, so
     
     $\mathcal F^+$:
         \[ \pi_J(x + y e_1 e_2)(z_0) = (xz_0 + iyz_1) \in \mathcal F^+\]
@@ -393,6 +443,19 @@ Notice that $i(e_1 - i e_3) = e_3 + ie_1 = e_3 - i (-e_1) = e_3 - i (J e_3)$, so
         \[ \pi_J(x + y e_1 e_2)(z_1e_1) = (xz_1 - iyz_1)e_1 \in \mathcal F^-\]
 
 \end{frame}
+
+
+\begin{frame}{Example(Cont.): Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
+    Alternatively, when $\mathcal F(\RR^2)$ is understood as $\CC^2$, then:
+    $\pi_J(\spin(2)) = \set{\begin{pmatrix} x + iy & 0 \\ 0 & x - iy \end{pmatrix}$
+    
+    which clearly acts irreducibly on both
+    
+    $\mathcal F^+(\RR^2) = span\left{ \twov{1}{0} \right}$ and
+    
+    $\mathcal F^-(\RR^2) = span\left{ \twov{0}{1} \right}$
+\end{frame}
+
 
 \begin{frame}{Example(Another View): Multiplication in $\mathcal F(\RR^2)$ and Decomposition} % % % % % % % % % % % % % % % % % % %
     
